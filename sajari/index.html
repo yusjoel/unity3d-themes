@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Sajari redirection</title>
+</head>
+<body>
+<script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var token = getQueryString('token');
+    var tokens = token.split('.');
+
+    for (var i = 0; i < tokens.length - 1; i++) {
+        //console.log(tokens[i]);
+        var json = window.atob(tokens[i]);
+        //console.log(json);
+        var info = JSON.parse(json);
+        if (info['destination']) {
+            window.location = info.destination;
+            break;
+        }
+        //console.log(info);
+    }
+
+
+</script>
+</body>
+</html>
