@@ -5,5 +5,5 @@ unity.com域名虽然没有被封掉, 但是引用了一些unity3d.com下的资�
 
 # Gooreplacer的配置
 1. 重定向
-2. 匹配模式: unity3d.com/profiles/unity3d/themes/unity/
+2. 匹配模式: unity3d.com/profiles/unity3d/themes/
 3. 目标地址: yusjoel.github.io/unity3d-themes/
