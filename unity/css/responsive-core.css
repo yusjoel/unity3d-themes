@@ -1,0 +1,619 @@
+/* ====================================================
+ * Company: Unity Technologies
+ * Author:  Rickard Andersson, rickard@unity3d.com
+ * 
+   TABLE OF CONTENTS
+   1. Core layout (less than 980px)
+      1.2 Mobile header
+      1.3 Mobile navigation
+      1.4 Tertiary menu
+   2. Break point 1 (767-980px)
+   3. Break point 2 (480-768px)
+   4. Break point 3 (0-479px)
+   5. Mobile footer
+   6. Large backgrounds
+   7. Large heros
+   8. Medium heros
+   9. Small heros & backgrounds
+  10. Mobile related
+  11. Localized menu breakpoints
+  12. Retina backgrounds
+ *
+======================================================= */
+
+/****************************************
+  ==== 1. CORE LAYOUT ( less than 980px)
+****************************************/
+
+@media only screen and (min-width: 150px) and (max-width: 980px){
+
+body { width: 100%; overflow-x: hidden; background: #222c37; }
+header.section-header { display: none; }
+section.section-content { width: 100%; position: relative; z-index: 12; padding: 50px 0 0 0; background: #fff; -webkit-backface-visibility: hidden; -ms-backface-visibility: hidden; -moz-backface-visibility: hidden; backface-visibility: hidden; -webkit-transition: -webkit-transform 500ms cubic-bezier(0.77, 0, 0.175, 1); -moz-transition: -moz-transform 500ms cubic-bezier(0.77, 0, 0.175, 1); -ms-transition: -ms-transform 500ms cubic-bezier(0.77, 0, 0.175, 1); transition: transform 500ms cubic-bezier(0.77, 0, 0.175, 1); }
+.menuopen section.section-content { -webkit-transform: translateX(-272px); -moz-transform: translateX(-272px); -ms-transform: translateX(-272px); transform: translateX(-272px); }
+div.hero { padding: 0; }
+.g-spacer { display: none; }
+
+/****************************************
+  ==== 1.2 MOBILE HEADER
+****************************************/
+
+header.m-header { width: 100%; height: 50px; display: block; position: absolute; top: 0; z-index: 12; background-color: rgba(34,44,55,0.9); }
+header.headroom--pinned { position: fixed; -webkit-transform: translateY(0%); -moz-transform: translateY(0%); transform: translateY(0%); }
+header.headroom--unpinned { position: absolute; -webkit-transform: translateY(-100%); -moz-transform: translateY(-100%); transform: translateY(-100%); }
+header.headroom--top { position: absolute; }
+div.m-logo { width: 88px; height: 50px; float: left; background: url(../images/assets/layout/core-sprites.png) 0 9px no-repeat; margin: 0 0 0 9px; }
+div.m-logo a { width: 88px; height: 50px; display: block; }
+div.m-navbtn, div.m-searchbtn, div.m-userbtn { width: 40px; height: 50px; float: right; margin: 0 0 0 1px; cursor: pointer; background: #00cccc; }
+div.m-searchbtn { background: url(../images/assets/layout/core-sprites.png) -184px 17px no-repeat; }
+div.m-userbtn { background: url(../images/assets/layout/core-sprites.png) -232px 17px no-repeat; }
+div.m-navbtn div.bar { width: 16px; height: 2px; background: #fff; margin: 3px 0 0 12px; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
+div.m-navbtn div.lines { width: 16px; height: 2px; position: absolute; top: 24px; left: 12px; background: #fff; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
+div.m-navbtn div.lines:before, div.m-navbtn div.lines:after { content: ''; width: 16px; height: 2px; display: block; position: absolute; left: 0; background: #fff; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; -webkit-transform-origin: 1px center; -moz-transform-origin: 1px center; -o-transform-origin: 1px center; transform-origin: 1px center; }
+div.m-navbtn div.lines:before { top: -5px; }
+div.m-navbtn div.lines:after { top: 5px; }
+div.m-navbtn.close div.lines { background: transparent; }
+div.m-navbtn.close div.lines:before, div.m-navbtn.close div.lines:after { width: 16px; top: 0; -webkit-transform-origin: 50% 50%; -moz-transform-origin: 50% 50%; -o-transform-origin: 50% 50%; transform-origin: 50% 50%; }
+div.m-navbtn.close div.lines:before { -webkit-transform: rotate3d(0,0,1,45deg); -moz-transform: rotate3d(0,0,1,45deg); -o-transform: rotate3d(0,0,1,45deg); transform: rotate3d(0,0,1,45deg); }
+div.m-navbtn.close div.lines:after { -webkit-transform: rotate3d(0,0,1,-45deg); -moz-transform: rotate3d(0,0,1,-45deg); -o-transform: rotate3d(0,0,1,-45deg); transform: rotate3d(0,0,1,-45deg); }
+
+/****************************************
+  ==== 1.3 MOBILE NAVIGATION
+****************************************/
+
+/* Layout */
+nav.mobile-menu { width: 272px; color: #fff; position: absolute; display: block; top: 0; right: 0; bottom: 0; z-index: 1; overflow-x: hidden; text-align: left; }
+nav.mobile-menu div.wrap { position: relative; left: 272px; z-index: 9; -webkit-transition: left 500ms cubic-bezier(0.77, 0, 0.175, 1); -moz-transition: left 500ms cubic-bezier(0.77, 0, 0.175, 1); -ms-transition: left 500ms cubic-bezier(0.77, 0, 0.175, 1); transition: left 500ms cubic-bezier(0.77, 0, 0.175, 1); }
+.menuopen nav.mobile-menu div.wrap { left: 0; }
+nav.mobile-menu div.menu, nav.mobile-menu div.user, nav.mobile-menu div.lang { margin: 0 20px 20px 20px; }
+nav.mobile-menu h2 { font-size: 1em; margin: 0 0 5px 0; color: #fff; }
+
+/* Search */
+nav.mobile-menu div.mobile-search { margin: 0 0 20px 0; background: #fff; }
+nav.mobile-menu div.gsc-control-searchbox-only { padding: 0 8px 0 0 !important; }
+nav.mobile-menu div.gsc-control-cse, nav.mobile-menu form.gsc-search-box, nav.mobile-menu table.gsc-search-box, nav.mobile-menu td.gsc-input, nav.mobile-menu td.gsib_a { padding: 0 !important; margin: 0 !important; background: none !important; border: 0 !important; }
+nav.mobile-menu div.gsc-input-box { font: 16px/135% 'Open Sans','Nanum Gothic','Hiragino Kaku Gothic Pro',Meiryo,'MS PGothic',sans-serif !important; background: #fff; height: 50px; border: 0; border: 0 !important; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; } 
+nav.mobile-menu input.gsc-input { width: 98% !important; height: 46px !important; font-size: 0.9375em !important; text-indent: 15px; padding: 0 !important; margin: 0 !important; border: none; background: #fff none 0 0 no-repeat !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important; }
+nav.mobile-menu input.gsc-search-button { margin: 5px 0 0 5px !important; padding: 11px 11px 12px 11px !important; outline: none; border: 0 !important; background: #222c37; -webkit-border-radius: 0 !important; -moz-border-radius: 0 !important; border-radius: 0 !important; }
+nav.mobile-menu input.g-search-icon { background: #222c37 url(../images/assets/layout/core-sprites.png) -187px 9px no-repeat; }
+nav.mobile-menu div.gsc-clear-button { display: none; }
+nav.mobile-menu table.gsc-completion-container { border: #e6e6e6 1px solid !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important; font-size: 0.9375em; } table.gstl_50, table.gssb_c { z-index: 9999 !important; }
+nav.mobile-menu .gsc-completion-container { font-family: 'Open Sans',sans-serif !important; }
+
+/* Menu */
+nav.mobile-menu div.menu { margin: 0 20px 20px 20px; }
+nav.mobile-menu div.menu ul { list-style-type: none; text-align: left; }
+nav.mobile-menu div.menu ul li a { display: block; padding: 3px 0; text-decoration: none; color: #aaa; font-size: 0.9375em; }
+nav.mobile-menu div.menu ul li a.active-trail { font-weight: bold; color: #fff; }
+nav.mobile-menu div.menu ul li ul { padding: 0 0 5px 0; }
+nav.mobile-menu div.menu ul li ul li a:before { content: "\2013\00A0\00A0\00A0"; }
+nav.mobile-menu div.menu ul li ul li a.active-trail { color: #fff; font-weight: normal; }
+
+/* Language */
+nav.mobile-menu div.lang { padding: 0 0 118px 0; background: url(../images/assets/layout/world-large.png) right 0 no-repeat; }
+nav.mobile-menu div.lang ul { list-style-type: none; }
+nav.mobile-menu div.lang ul li { width: 33.333333334%; float: left; font-size: 0.8125em; margin: 0 0 5px 0; }
+nav.mobile-menu div.lang ul li a { float: left; display: block; color: #aaa; }
+
+/****************************************
+  ==== 1.4 TERTIARY MENU
+****************************************/
+
+nav.tertiary-nav { height: 40px; margin: 0 0 30px 0; }
+nav.tertiary-nav div.g12 { height: 40px; padding: 20px 10px 0 10px; }
+nav.tertiary-nav ul.tabbed { overflow: hidden; }
+nav.tertiary-nav ul.tabbed li a { padding: 0 15px !important; }
+nav.navstuck div.g12 { height: 40px; background: rgba(34,44,55,0.9); padding: 0; -webkit-backface-visibility: hidden; -webkit-transform: translateZ(0); }
+nav.navstuck div.wrap { padding: 0 30px; }
+nav.navstuck h2 { display: none; }
+nav.navstuck ul.tabbed { float: left; margin: 0; }
+nav.navstuck ul.tabbed li a { height: 40px; line-height: 40px; }
+
+}
+
+/****************************************
+  ==== 2. BREAK POINT 1 (767-980px)
+****************************************/
+
+@media only screen and (min-width: 768px) and (max-width: 980px){
+
+section.content-wrapper { padding: 15px 15px 75px 15px; }
+.g1,.g2,.g1-5,.g3,.g4,.g5,.g6,.g7,.g8,.g9,.g10,.g11,.g12 { padding: 10px 15px; }
+.g1-5 { width: 25% }
+
+footer .g8 { width: 100%; }
+footer .g8 .links { width: 25%; padding-bottom: 20px !important; }
+footer .g8 .partners { width: 100%; padding-bottom: 20px !important; }
+footer .g4 { width: 100%; }
+footer .g4 .newsletter { width: 50%; padding-bottom: 20px !important; }
+footer .g4 .lang { width: 50%; }
+footer .g4 .social { width: 50%; padding-bottom: 20px !important; }
+
+div.header-slider ul.c li div.header-content { top: 50%; padding: 0 15px; }
+
+}
+
+/****************************************
+  ==== 3. BREAK POINT 2 (480-768px)
+****************************************/
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+
+h1 { font-size: 2em; margin: 0 0 15px 0; }
+h1.smaller { font-size: 1.75em; }
+h2 { font-size: 1.375em; line-height: 1.2em; margin: 0 0 15px 0; }
+h3 { font-size: 1.375em; line-height: 1.2em; margin: 0 0 10px 0; }
+h4 { font-size: 1.0625em; line-height: 1.2em; margin: 0 0 10px 0; }
+p { font-size: 0.9375em; line-height: 1.5em; margin: 0 0 10px 0; }
+small { font-size: 0.8125em; line-height: 1em; margin: 0 0 10px 0; }
+
+nav.tertiary-nav { margin: 0 0 15px 0; }
+nav.tertiary-nav div.g12 { padding: 20px 10px 0 10px; }
+section.content-wrapper { padding: 15px 15px 50px 15px; }
+footer div.wrap { padding: 0 15px; }
+footer .g4 .lang ul li { width: 20%; }
+
+.g1,.g2,.g1-5,.g3,.g4,.g5,.g6,.g7,.g8,.g9,.g10,.g11,.g12 { padding: 10px 15px; }
+.g1 { width: 8.33333333333% }
+.g2 { width: 16.6666666667% }
+.g1-5 { width: 25% }
+.g3 { width: 50% }
+.g4 { width: 100% }
+.g5 { width: 100% }
+.g6 { width: 100% }
+.g7 { width: 100% }
+.g8 { width: 100% }
+.g9 { width: 100% }
+.g10 { width: 100% }
+.g11 { width: 91.666666667% }
+.g12 { width: 100% }
+.g6.nest .g6 { width: 50%; }
+
+div.header-slider { height: 250px; }
+div.header-slider ul.c li div.header-content { top: 60%; padding: 0 60px; }
+
+}
+
+/****************************************
+  ==== 4. BREAK POINT 3 (0-479px)
+****************************************/
+
+@media only screen and (max-width: 479px){
+
+h1 { font-size: 2em; margin: 0 0 15px 0; }
+h1.smaller { font-size: 1.75em; }
+h2 { font-size: 1.375em; line-height: 1.2em; margin: 0 0 15px 0; }
+h3 { font-size: 1.375em; line-height: 1.2em; margin: 0 0 10px 0; }
+h4 { font-size: 1.0625em; line-height: 1.2em; margin: 0 0 10px 0; }
+p { font-size: 0.9375em; line-height: 1.5em; margin: 0 0 10px 0; }
+small { font-size: 0.8125em; line-height: 1em; margin: 0 0 10px 0; }
+
+section.content-wrapper { padding: 20px 0 20px 0; }
+nav.tertiary-nav { margin: 0 0 15px 0; }
+nav.tertiary-nav div.g12 { padding: 20px 0 0 0; }
+nav.tertiary-nav div.wrap { margin: 0 15px; }
+footer div.wrap { padding: 0; }
+footer .g4 .lang ul li { width: 33.333333334%; }
+
+.g1,.g2,.g1-5,.g3,.g4,.g5,.g6,.g7,.g8,.g9,.g10,.g11,.g12 { padding: 10px 15px; }
+.g1 { width: 8.33333333333% }
+.g2 { width: 16.6666666667% }
+.g1-5 { width: 33.333333334% }
+.g3 { width: 100% }
+.g4 { width: 100% }
+.g5 { width: 100% }
+.g6 { width: 100% }
+.g7 { width: 100% }
+.g8 { width: 100% }
+.g9 { width: 100% }
+.g10 { width: 100% }
+.g11 { width: 91.666666667% }
+.g12 { width: 100% }
+
+div.header-slider { height: 250px; }
+div.header-slider ul.c li div.header-content { top: 60%; padding: 0 40px; }
+
+
+}
+
+/****************************************
+  ==== 5. MOBILE FOOTER
+****************************************/
+
+@media only screen and (max-width: 767px){
+
+footer .g8 { width: 100%; }
+footer .links-lbl { display: block !important; }
+footer .g8 .links, footer .g8 .partners { width: 100%; padding: 0 15px !important; }
+footer .links p, footer .partner { display: none; }
+footer .g8 .links h3, footer .g8 .partners h3 { background: rgba(0,207,209,0.0); margin: 0 0 1px 0; padding: 7px 0 7px 25px; font-family: 'Open Sans',sans-serif; text-transform: none; font-size: 0.9375em; cursor: pointer; border-top: #ddd 1px solid; position: relative; }
+footer .g8 .partners h3 { border-bottom: #ddd 1px solid; }
+footer .g8 .links h3:before, footer .g8 .partners h3:before, footer .g8 .links h3:after, footer .g8 .partners h3:after { content: ''; display: block; width: 10px; height: 2px; position: absolute; top: 50%; left: 5px; margin: -1px 0 0 0; background: #1b2229; }
+footer .g8 .links h3:after, footer .g8 .partners h3:after { width: 2px; height: 10px; top: 50%; left: 9px; margin: -5px 0 0 0; }
+footer .g8 .expanded h3 { font-weight: bold; }
+footer .g8 .expanded h3:after { display: none; }
+footer .expanded p, footer .expanded .partner { display: block !important; }
+footer .expanded p { margin: 0 0 5px 25px !important; }
+footer .expanded p:last-child { margin: 0 0 10px 25px !important; }
+footer .expanded .partner { margin: 10px 15px 0 0 !important; }
+footer .g4 { width: 100%; }
+footer .g4 .newsletter { width: 100%; padding: 20px 15px 10px 15px !important; }
+footer .g4 .lang { width: 100%; padding-bottom: 20px !important; background: none !important; }
+footer div.copy p { float: none; margin: 0; }
+footer div.copy ul { float: none; }
+
+}
+
+/****************************************
+  ==== 6. LARGE BACKGROUNDS
+****************************************/
+
+@media only screen and (min-width: 768px){
+
+div.background { height: 400px; }
+.intro-assetstore .background { height: 400px; background-image: url(../images/assets/backgrounds/assetstore-info-orange.jpg);}
+.level11 .background { height: 400px; background-image: url(../images/assets/backgrounds/assetstore-lvl11.jpg);}
+.team-license .background { height: 360px; background-image: url(../images/assets/backgrounds/unity/collaboration.jpg); }
+.context-10-year-promo .background { height: 350px; background-image: url(../images/assets/backgrounds/10-year-promo.jpg); }
+.showcase-case-stories .background { height: 550px; }
+.showcase-case-story .background { height: 400px; }
+.showcase-trailers .background { background: #222; height: 250px; }
+
+.learn-home .background { height: 450px; background-image: url(../images/assets/backgrounds/learn-chalkboard.jpg); }
+.whatisunity .background { height: 500px; background-image: url(../images/assets/backgrounds/what-is-unity.jpg); }
+.upc .background { height: 500px; background-image: url(../images/assets/backgrounds/upc.jpg); }
+.uls .background { height: 500px; background-image: url(../images/assets/backgrounds/uls.jpg); }
+.community-home .background { height: 400px; background-image: url(../images/assets/backgrounds/community.jpg); }
+.evangelists .background { height: 330px; background-image: url(../images/assets/backgrounds/evangelists.jpg); }
+
+.events .background { height: 460px; background-image: url(../images/assets/backgrounds/events-header.jpg); }
+.unite2015-boston .background { height: 650px; background-image: url(../images/assets/backgrounds/unite/2015/unite-boston.jpg); }
+.unite2015-brazil .background { height: 650px; background-image: url(../images/assets/backgrounds/unite/2015/unite-brazil.jpg); }
+.unite2015-europe .background { height: 650px; background-image: url(../images/assets/backgrounds/unite/2015/unite-europe.jpg); }
+.unite2015-melbourne .background { height: 650px; background-image: url(../images/assets/backgrounds/unite/2015/unite-melbourne.jpg); }
+.unite2015-bangkok .background { height: 650px; background-image: url(../images/assets/backgrounds/unite/2015/unite-bangkok.jpg); }
+
+.why-unity5 .background { height: 650px; background-image: url(../images/assets/backgrounds/why5.jpg); }
+
+.wp-adopting-unity .background { height: 450px; background-image: url(../images/assets/backgrounds/no-engine.jpg); }
+.blackberry .background { height: 330px; background-image: url(../images/assets/backgrounds/blackberry.jpg); }
+.windows .background { height: 360px; background-image: url(../images/assets/backgrounds/ms.png); }
+.windows.hololens .background { height: 550px; background-image: url(../images/assets/backgrounds/hololens.jpg); }
+.samsung .background { height: 350px; background-image: url(../images/assets/backgrounds/samsung.jpg); }
+.made-for-samsung .background {  height: 350px; background-image: url(../images/assets/backgrounds/made-for-samsung.jpg); position: relative; }
+
+.jobs .background { height: 330px; background-image: url(../images/assets/backgrounds/jobs.jpg); }
+.company-fastfacts .background { height: 536px; background-image: url(../images/assets/backgrounds/world-offices.png); }
+.company-brand .background { background-image: url(../images/assets/backgrounds/brand-front.jpg); }
+
+.industries-aec .background { height: 550px; background-image: url(../images/assets/backgrounds/aec.jpg); }
+
+.industries-gambling .background { height: 550px; background-image: url(../images/assets/backgrounds/gambling.jpg); }
+.roadshow .background { height: 450px; background-image: url(../images/assets/backgrounds/roadshow.jpg); }
+.saas .background { height: 400px; background-image: url(../images/assets/backgrounds/saas.jpg); }
+.journey-republique .background { height: 550px; background-image: url(../images/assets/backgrounds/journey-republique.jpg); }
+
+.front .background-top { height: 850px; background-color: #222c37; }
+.webplayer .background { height: 350px; background-image: url(../images/assets/backgrounds/webplayer.jpg); }
+
+.beta-4_6 .background { background-image: url(../images/assets/backgrounds/unity/beta46-header.jpg); }
+.beta-5-0 .background { height: 422px; background-image: url(../images/assets/backgrounds/unity/beta50-header.jpg); }
+}
+
+/****************************************
+  ==== 7. LARGE HEROS
+****************************************/
+
+@media only screen and (min-width: 981px){
+.unity-beta .hero { height: 450px; }
+.showcase .hero { height: 425px; }
+.showcase-gallery .hero { height: 425px; }
+.showcase-case-stories .hero { height: 425px; }
+.showcase-case-story .hero { height: 275px; }
+
+.intro-assetstore .hero,
+.level11 .hero { height: 275px; }
+.team-license .hero { height: 55px; }
+.context-10-year-promo .hero { height: 240px; }
+.learn-home .hero { height: 325px; }
+.live-training .hero { height: 350px; }
+.community-home .hero { height: 290px; }
+.evangelists .hero { height: 205px; }
+.events .hero { height: 35px; }
+
+.roadshow .hero { height: 325px; }
+.saas .hero { height: 275px; }
+.unite2015-boston .hero { height: 525px; }
+.unite2015-brazil .hero { height: 525px; }
+.unite2015-europe .hero { height: 525px; }
+.unite2015-bangkok .hero { height: 525px; }
+.unite2015-melbourne .hero { height: 525px; }
+
+.why-unity5 .hero { height: 525px; }
+
+.wp-adopting-unity .hero { height: 325px; }
+.blackberry .hero { height: 205px; }
+.windows .hero { height: 235px; }
+.windows.hololens .hero { height: 440px; }
+.samsung .hero { height: 270px; }
+.samsung.events .hero { height: 195px; }
+.made-for-samsung .hero { height : 0; }
+
+.qualcomm .hero { height: 100px; }
+.journey-republique .hero { height: 425px; }
+
+.whatisunity .hero { height: 375px; }
+.whatisunity-old .hero { height: 425px; }
+.upc .hero { height: 375px; }
+.uls .hero { height: 375px; }
+.company .hero, .people .hero { margin-bottom: 250px; }
+.jobs .hero { height: 205px; }
+.company-fastfacts .hero { height: 411px; }
+.company-brand .hero { height: 275px; }
+
+.industries .hero { height: 425px; }
+.industries-aec .hero { height: 425px; }
+.industries-sim .hero { height: 425px; }
+.industries-gambling .hero { height: 425px; }
+
+.webplayer .hero { height: 225px; position: relative; }
+
+.beta-4_6 .hero { height: 275px; }
+.beta-5-0 .hero { height: 285px; }
+
+}
+
+/****************************************
+  ==== 8. MEDIUM HEROS
+****************************************/
+
+@media only screen and (min-width: 768px) and (max-width: 980px){
+
+.showcase .hero { height: 500px; }
+.showcase-gallery .hero { height: 500px; }
+.showcase-case-stories .hero { height: 500px; }
+.showcase-case-story .hero { height: 350px; }
+
+.learn-home .hero { height: 400px; }
+.live-training .hero { height: 425px; }
+.events .hero { height: 40px; }
+.events .background { height: 390px; }
+.roadshow .hero { height: 300px; }
+.roadshow .background { height: 350px; }
+  
+.unite2015-boston .hero { height: 600px; }
+.unite2015-brazil .hero { height: 600px; }
+.unite2015-europe .hero { height: 600px; }
+.unite2015-bangkok .hero { height: 600px; }
+.unite2015-melbourne .hero { height: 600px; }
+
+.why-unity5 .hero { height: 600px; }
+
+.wp-adopting-unity .hero { height: 400px; }
+.whatisunity .hero { height: 450px; }
+.whatisunity-old .hero { height: 500px; }
+.upc .hero { height: 450px; }
+.uls .hero { height: 450px; }
+.community-home .hero { height: 350px; }
+.evangelists .hero { height: 265px; }
+.blackberry .hero { height: 280px; }
+.windows .hero { height: 310px; }
+.windows.hololens .background { height: 310px; }
+.windows.hololens .hero { height: 280px; }
+.samsung .background { height: 350px; background-image: url(../images/assets/backgrounds/samsung-t.jpg); }
+.samsung .hero { height: 270px; }
+.made-for-samsung .background { height: 350px; background-image: url(../images/assets/backgrounds/made-for-samsung-m.jpg); position: relative; }
+.made-for-samsung .hero { height: 0; }
+.samsung.events .hero { height: 200px; }
+.qualcomm .hero { height: 180px; }
+ 
+.team-license .hero { height: 150px; }
+.context-10-year-promo .hero { height: 320px; } 
+.company div.hero, .people div.hero { margin-bottom: 310px; }
+.jobs .hero { height: 280px; }
+.company-fastfacts .hero { height: 486px; }
+.company-brand .hero { height: 350px; }
+
+.industries .hero { height: 500px; }
+.industries-aec .hero { height: 500px; }
+.industries-sim .hero { height: 500px; }
+.industries-gambling .hero { height: 500px; }
+.saas .hero { height: 345px; }
+.journey-republique .hero { height: 500px; }
+
+.webplayer .hero { height: 320px; position: relative; }
+  
+.beta-4_6 .hero { height: 350px; }
+.beta-5-0 .hero { height: 370px; }
+
+}
+
+/****************************************
+  ==== 9. SMALL HEROS & BACKGROUNDS
+****************************************/
+
+@media only screen and (max-width: 767px) {
+
+div.background { height: 200px; }
+
+.showcase .hero { height: 200px; }
+.showcase-gallery .hero { height: 200px; }
+.showcase-case-stories .background { height: 250px; }
+.showcase-case-stories .hero { height: 200px; }
+.showcase-case-story .background { height: 200px; }
+.showcase-case-story .hero { height: 150px; }
+.showcase-trailers .background { background: #222; height: 200px; }
+
+.learn-home .hero { height: 200px; }
+.learn-home .background { height: 250px; background-image: url(../images/assets/backgrounds/learn-chalkboard-m.jpg); }
+.live-training .hero { height: 250px; }
+
+.events .background { background-image: url(../images/assets/backgrounds/events-header-m.jpg); }
+.events .hero { height: 150px; }
+
+.unite2015-boston .hero { height: 450px; }
+.unite2015-brazil .hero { height: 450px; }
+.unite2015-europe .hero { height: 450px; }
+.unite2015-bangkok .hero { height: 450px; }
+.unite2015-melbourne .hero { height: 450px; }
+
+.unite2015-boston .background { height: 500px; background-image: url(../images/assets/backgrounds/unite/2015/unite-boston.jpg); }
+.unite2015-brazil .background { height: 500px; background-image: url(../images/assets/backgrounds/unite/2015/unite-brazil.jpg); }
+.unite2015-europe .background { height: 500px; background-image: url(../images/assets/backgrounds/unite/2015/unite-europe.jpg); }
+.unite2015-bangkok .background { height: 500px; background-image: url(../images/assets/backgrounds/unite/2015/unite-bangkok.jpg); }
+.unite2015-melbourne .background { height: 500px; background-image: url(../images/assets/backgrounds/unite/2015/unite-melbourne.jpg); }
+
+.wp-adopting-unity .hero { height: 200px; }
+.wp-adopting-unity .background { height: 250px; background-image: url(../images/assets/backgrounds/no-engine-m.jpg); }
+
+.whatisunity .hero { height: 150px; }
+.whatisunity .background { background-image: url(../images/assets/backgrounds/what-is-unity-m.jpg); }
+.whatisunity-old .hero { height: 200px; }
+.upc .hero { height: 150px; }
+.upc .background { background-image: url(../images/assets/backgrounds/upc-m.jpg); }
+.uls .hero { height: 150px; }
+.uls .background { background-image: url(../images/assets/backgrounds/uls-m.jpg); }
+.community-home .hero { height: 250px; }
+.community-home .background { height: 300px; background-image: url(../images/assets/backgrounds/community-m.jpg); }
+.evangelists .hero { height: 150px; }
+.evangelists .background { background-image: url(../images/assets/backgrounds/evangelists-m.jpg); }
+.blackberry .background { background-image: url(../images/assets/backgrounds/blackberry-m.jpg); }
+.blackberry .hero { height: 150px; }
+.windows .background { background-image: url(../images/assets/backgrounds/ms-m.png); }
+.windows.hololens .background { background-image: url(../images/assets/backgrounds/hololens.jpg); }
+.windows .hero { height: 150px; }
+.samsung .background { height: 300px; background-image: url(../images/assets/backgrounds/samsung-m.jpg); }
+.samsung .hero { height: 210px; }
+  
+.made-for-samsung .background { height: 300px; background-image: url(../images/assets/backgrounds/made-for-samsung-m.jpg);  position: relative; }
+.made-for-samsung .hero { height: 0; }
+
+.team-license .background { height: 200px; background-image: url(../images/assets/backgrounds/unity/collaboration-m.jpg); }
+.team-license .hero { height: 80px; }
+.context-10-year-promo .background { height: 200px; background-image: url(../images/assets/backgrounds/10-year-promo-m.jpg); }
+.context-10-year-promo .hero { height: 160px; }
+
+.why-unity5 .background { height: 250px; background-image: url(../images/assets/backgrounds/why5-m.jpg); }
+.why-unity5 .hero { height: 170px; padding-top: 30px; }
+
+
+.qualcomm .background { height: 250px; background-image: url(../images/assets/backgrounds/qualcomm-m.jpg); }
+.qualcomm .hero { height: 200px; }
+
+.company div.hero, .people div.hero { margin-bottom: 310px; }
+.jobs .background { background-image: url(../images/assets/backgrounds/jobs-m.jpg); }
+.jobs .hero { height: 150px; }
+.company-fastfacts .background { height: 250px; background-image: url(../images/assets/backgrounds/world-offices-m.png); }
+.company-fastfacts .hero { height: 200px; }
+.company-brand .background { background-image: url(../images/assets/backgrounds/brand-front-m.jpg); }
+.company-brand .hero { height: 200px; }
+
+.industries .hero { height: 200px; }
+.industries-aec .background { height: 250px; background-image: url(../images/assets/backgrounds/aec-m.jpg); }
+.industries-aec .hero { height: 200px; }
+.industries-sim .hero { height: 200px; }
+.industries-gambling .background { background-image: url(../images/assets/backgrounds/gambling-m.jpg); }
+.industries-gambling .hero { height: 150px; }
+.roadshow .background { height: 250px; background-image: url(../images/assets/backgrounds/roadshow-m.jpg); }
+.roadshow .hero { height: 200px; }
+
+.journey-republique .background { height: 250px; background-image: url(../images/assets/backgrounds/journey-republique-m.jpg); }
+.journey-republique .hero { height: 200px; }
+  
+.webplayer .background { height: 200px; background-image: url(../images/assets/backgrounds/webplayer-m.jpg); }
+.webplayer .hero { height: 160px; position: relative; }
+
+.beta-4_6 .hero { height: 150px; }
+.beta-4_6 .background { background-image: url(../images/assets/backgrounds/unity/beta46-header-m.jpg); }
+
+.beta-5-0 .hero { height: 150px; }
+.beta-5-0 .background { background-image: url(../images/assets/backgrounds/unity/beta50-header-m.jpg); }
+
+}
+@media only screen and (max-width: 324px) {
+
+.saas .background { height: 300px; background-image: url(../images/assets/backgrounds/saas-m.jpg); }
+.saas .hero { height: 250px; }
+}
+@media (min-width: 325px) and (max-width: 620px) {
+
+.saas .background { height: 260px; background-image: url(../images/assets/backgrounds/saas-m.jpg); }
+.saas .hero { height: 200px; }
+}
+@media (min-width: 621px) and (max-width: 767px) {
+  
+.saas .background { height: 300px; background-image: url(../images/assets/backgrounds/saas-m.jpg); }
+.saas .hero { height: 250px; }
+  
+}
+
+
+/****************************************
+  ==== 10. MOBILE RELATED
+****************************************/
+
+@media only screen and (max-width: 767px) {
+
+.mclear:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.mclear { display: inline-table; clear: both; }
+/* Hides from IE-mac \*/ * html .mclear { height: 1%; } .mclear { display: block; } /* End hide from IE-mac */
+
+div.background-slider { height: 250px; }
+div.background-slider ul li div.caption { padding: 100px 0 15px 0; }
+div.background-slider div.caption h1 { font-size: 1em; display: inline; }
+div.prev, div.next, div.plus { width: 32px; height: 32px; }
+div.prev a, div.next a, div.plus a { width: 32px; height: 32px; }
+div.prev { left: 15px; bottom: auto; top: 60%; background-position: 0 -138px; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); transform: translateY(-50%); }
+div.next { right: 15px; bottom: auto; top: 60%; background-position: -32px -138px; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); transform: translateY(-50%); }
+div.plus { background-position: -64px -138px; }
+div.play { width: 50px; height: 34px; background-position: 0 -54px; }
+div.play.green { background-position: -50px -54px; }
+div.play.yellow { background-position: -100px -54px; }
+div.play.red { background-position: -150px -54px; }
+div.play.purple { background-position: -200px -54px; }
+div.play.dark { background-position: -250px -54px; }
+
+}
+
+/****************************************
+  ==== 11. LOCALIZED MENU BREAKPOINTS
+****************************************/
+
+@media only screen and (min-width: 980px) and (max-width: 1020px){
+
+.i18n-en nav.top-nav ul li a {  }
+
+}
+@media only screen and (min-width: 980px) and (max-width: 1070px){
+
+.i18n-pt nav.top-nav ul li a { margin: 0 8px; }
+.i18n-es nav.top-nav ul li a { margin: 0 9px; }
+.i18n-ru nav.top-nav ul li a { margin: 0 11px; }
+
+}
+
+/****************************************
+  ==== 12. RETINA BACKGROUNDS
+****************************************/
+
+@media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio:2){
+footer div.oculus a { width: 85px; background-position: -584px 0; }
+h1.arrow:after, h2.arrow:after, h3.arrow:after, h4.arrow:after, div.fancy-select div.trigger:before, div.select-box div.trigger:before, div.select-box.small div.trigger:before,
+.checkbox input[type=checkbox]:checked + label:after, header.section-header div.logo, nav.top-nav div.search-wrapper .g-search-icon, nav.top-nav div.search-icon,
+nav.top-nav div.user-icon, nav.top-nav div.close-icon, nav.tertiary-nav div.dropdown-lbl:after, footer div.newsletter input.blue-btn, footer div.social a.icon,
+div.paging ul li.prev-page a, div.paging ul li.next-page a, div.paging ul li a.prev, div.paging ul li a.next, div.icon span, a.expand:before, a.expanded:before,
+div.secondary div.promotion .meta h2:after,div.background-slider div.caption a:after, div.m-logo, div.m-searchbtn, div.m-userbtn, nav.mobile-menu input.g-search-icon,
+.gp-p .controls, .playbtn { 
+  background-image: url(../images/assets/layout/core-sprites@2x.png); -webkit-background-size: 600px 400px; -moz-background-size: 600px 400px; -o-background-size: 600px 400px; background-size: 600px 400px;
+}
+input[type="text"].error, input[type="tel"].error, input[type="email"].error, input[type="password"].error, textarea.error, .checkbox.error:before, div.fancy-select div.trigger.error:after, .field-file .file-input.error:after { background-image: url(../images/assets/icons/error-red@2x.png); -webkit-background-size: 24px 12px; -moz-background-size: 24px 12px; -o-background-size: 24px 12px; background-size: 24px 12px; }
+input[type="text"].ok, input[type="tel"].ok, input[type="email"].ok, input[type="password"].ok, textarea.ok, div.fancy-select div.trigger.ok:after, .field-file .file-input.ok:after { background-image: url(../images/assets/icons/check-green@2x.png); -webkit-background-size: 26px 10px; -moz-background-size: 26px 10px; -o-background-size: 26px 10px; background-size: 26px 10px; }
+input[type="text"].warning, input[type="tel"].warning, input[type="email"].warning, input[type="password"].warning, textarea.warning, div.fancy-select div.trigger.warning:after { background-image: url(../images/assets/icons/warning-orange@2x.png); -webkit-background-size: 19px 16px; -moz-background-size: 19px 16px; -o-background-size: 19px 16px; background-size: 19px 16px; }
+header.section-header div.shard:before { background-image: url(../images/assets/layout/shard@2x.png); -webkit-background-size: 562px 140px; -moz-background-size: 562px 140px; -o-background-size: 562px 140px; background-size: 562px 140px; }
+footer div.partner a { background-image: url(../images/ui/sprites/partners-sprite@2x.png); -webkit-background-size: 1200px 38px; -moz-background-size: 1200px 38px; -o-background-size: 1200px 38px; background-size: 1200px 38px; }
+div.prev, div.next, div.play, div.plus, div.down, div.up, .fancybox-nav span, .gp-e .controls, .gp-s .controls { background-image: url(../images/assets/layout/media-icons-sprite@2x.png); -webkit-background-size: 480px 200px; -moz-background-size: 480px 200px; -o-background-size: 480px 200px; background-size: 480px 200px; }
+div.platform-icon a, div.platform-icon div.logo { background-image: url(../images/assets/elements/platform-logos@2x.png); -webkit-background-size: 50px 1700px; -moz-background-size: 50px 1700px; -o-background-size: 50px 1700px; background-size: 50px 1700px; }
+.rss-icon { background-image: url(../images/assets/icons/rss-large@2x.png); -webkit-background-size: 42px 42px; -moz-background-size: 42px 42px; -o-background-size: 42px 42px; background-size: 42px 42px; }
+ul.checkmarks li { background-image: url(../images/assets/icons/check-green@2x.png); -webkit-background-size: 28px 16px; -moz-background-size: 28px 16px; -o-background-size: 28px 16px; background-size: 28px 16px; }
+div.unity-loading, #fancybox-loading { background-image: url(../images/assets/elements/loading-cube@2x.png); -webkit-background-size: 48px 50px; -moz-background-size: 48px 50px; -o-background-size: 48px 50px; background-size: 48px 50px;}
+}
